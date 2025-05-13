@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect } from 'react';
 
 const Hero = () => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true); // Changed from false to true
 
   useEffect(() => {
     setVisible(true);
@@ -18,7 +18,7 @@ const Hero = () => {
       <div className="absolute inset-0 hero-pattern"></div>
       <div className="container mx-auto px-4 py-16 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className={`${visible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000`}>
+          <div className={`opacity-100 transition-opacity duration-1000`}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 leading-tight mb-6">
               Simplify Your Taxes. <span className="text-brand-blue">Scale Your Business.</span>
             </h1>
@@ -48,13 +48,18 @@ const Hero = () => {
               <Button
                 variant="outline"
                 className="border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-medium py-2 px-6 rounded-lg text-base"
-                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => {
+                  const element = document.getElementById('services');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               >
                 Explore Services
               </Button>
             </div>
           </div>
-          <div className={`${visible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000 delay-300 flex justify-center lg:justify-end`}>
+          <div className={`opacity-100 transition-opacity duration-1000 delay-300 flex justify-center lg:justify-end`}>
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-brand-blue to-brand-indigo rounded-3xl blur opacity-20"></div>
               <div className="relative bg-white rounded-3xl shadow-xl overflow-hidden">

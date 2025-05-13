@@ -42,11 +42,11 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { label: "Home", link: "/", action: isHomePage ? () => scrollToSection('home') : undefined },
-    { label: "About", link: "/about", action: isHomePage ? () => scrollToSection('about') : undefined },
-    { label: "Services", link: "/services", action: isHomePage ? () => scrollToSection('services') : undefined },
-    { label: "Testimonials", link: "/testimonials", action: isHomePage ? () => scrollToSection('testimonials') : undefined },
-    { label: "Contact", link: "/contact", action: isHomePage ? () => scrollToSection('contact') : undefined }
+    { label: "Home", link: "/", action: null },
+    { label: "About", link: "/about", action: null },
+    { label: "Services", link: "/services", action: null },
+    { label: "Testimonials", link: "/testimonials", action: null },
+    { label: "Contact", link: "/contact", action: null }
   ];
 
   return (
@@ -64,23 +64,13 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item, index) => (
-            item.action ? (
-              <button 
-                key={index}
-                onClick={item.action}
-                className="text-gray-800 hover:text-brand-blue font-medium transition-colors"
-              >
-                {item.label}
-              </button>
-            ) : (
-              <Link
-                key={index}
-                to={item.link}
-                className="text-gray-800 hover:text-brand-blue font-medium transition-colors"
-              >
-                {item.label}
-              </Link>
-            )
+            <Link
+              key={index}
+              to={item.link}
+              className="text-gray-800 hover:text-brand-blue font-medium transition-colors"
+            >
+              {item.label}
+            </Link>
           ))}
         </div>
 
@@ -133,27 +123,14 @@ const Navbar = () => {
                 </div>
                 <div className="flex flex-col space-y-4">
                   {navItems.map((item, index) => (
-                    item.action ? (
-                      <button 
-                        key={index}
-                        onClick={() => {
-                          item.action?.();
-                          setDrawerOpen(false);
-                        }}
-                        className="py-2 text-gray-800 hover:text-brand-blue font-medium transition-colors text-left"
-                      >
-                        {item.label}
-                      </button>
-                    ) : (
-                      <Link
-                        key={index}
-                        to={item.link}
-                        className="py-2 text-gray-800 hover:text-brand-blue font-medium transition-colors"
-                        onClick={() => setDrawerOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    )
+                    <Link
+                      key={index}
+                      to={item.link}
+                      className="py-2 text-gray-800 hover:text-brand-blue font-medium transition-colors"
+                      onClick={() => setDrawerOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
                   ))}
                 </div>
                 
