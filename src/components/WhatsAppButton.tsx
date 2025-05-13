@@ -1,12 +1,43 @@
 
+import { useState, useEffect } from 'react';
+import { useIsMobile } from "@/hooks/use-mobile";
+
 const WhatsAppButton = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const isMobile = useIsMobile();
+
   const handleWhatsAppClick = () => {
+    setIsAnimating(true);
+    setTimeout(() => setIsAnimating(false), 500);
     window.open(`https://wa.me/919999999999?text=${encodeURIComponent('Hello, I would like to inquire about your CA services.')}`, '_blank');
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY + 50) {
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY - 10) {
+        setIsVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
     <button 
-      className="whatsapp-button"
+      className={`whatsapp-button ${isAnimating ? 'animate-bounce' : ''} ${
+        isMobile 
+          ? `${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'} fixed bottom-6 right-6` 
+          : 'fixed bottom-6 right-6'
+      } transition-all duration-300 ease-in-out`}
       onClick={handleWhatsAppClick}
       aria-label="Chat on WhatsApp"
     >

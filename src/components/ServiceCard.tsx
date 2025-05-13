@@ -1,5 +1,8 @@
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { useIntersectionObserver } from "@/hooks/use-animation";
+import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ServiceCardProps {
   title: string;
@@ -10,34 +13,61 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, delay }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
+  const isMobile = useIsMobile();
+  const iconRef = useRef<HTMLDivElement>(null);
   
   const handleWhatsAppClick = (e: React.MouseEvent) => {
     e.stopPropagation();
+    
+    // Add a pulse animation to the button when clicked
+    if (iconRef.current) {
+      iconRef.current.classList.add('animate-pulse');
+      setTimeout(() => {
+        if (iconRef.current) iconRef.current.classList.remove('animate-pulse');
+      }, 1000);
+    }
+    
     const message = `Hello, I would like to inquire about your ${title} service.`;
     window.open(`https://wa.me/919999999999?text=${encodeURIComponent(message)}`, '_blank');
   };
   
   return (
     <div 
-      className={`service-card group animate-fade-in-up`}
-      style={{ animationDelay: `${delay}ms` }}
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className={cn(
+        `service-card group`, 
+        isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
+        "transition-all duration-700 ease-out"
+      )}
+      style={{ transitionDelay: `${delay}ms` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="service-card-icon">
+      <div 
+        ref={iconRef}
+        className={cn(
+          "service-card-icon transition-transform duration-500",
+          isHovered && "transform rotate-12"
+        )}
+      >
         {icon}
       </div>
-      <h3 className="text-xl font-semibold mb-2 text-gray-900">{title}</h3>
+      <h3 className="text-xl font-semibold mb-2 text-gray-900 transition-colors duration-300 group-hover:text-brand-blue">
+        {title}
+      </h3>
       <p className="text-gray-600 mb-4">{description}</p>
       
       <div 
-        className={`absolute bottom-0 right-0 m-4 transition-all duration-300 ${
-          isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-        }`}
+        className={cn(
+          "absolute bottom-0 right-0 m-4 transition-all duration-500",
+          isHovered ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-90'
+        )}
       >
         <button
           onClick={handleWhatsAppClick}
-          className="bg-green-500 hover:bg-green-600 text-white p-2 rounded-full shadow-lg"
+          className="bg-green-500 hover:bg-green-600 text-white p-2 rounded-full shadow-lg transform transition duration-300 hover:scale-110 active:scale-95"
+          aria-label="Chat on WhatsApp about this service"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

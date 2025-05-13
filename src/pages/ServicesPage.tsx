@@ -1,15 +1,21 @@
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { useIntersectionObserver } from "@/hooks/use-animation";
+import { cn } from "@/lib/utils";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import { useToast } from "@/hooks/use-toast";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
+  DialogClose,
 } from "@/components/ui/dialog";
 
 interface ServiceProps {
@@ -23,7 +29,10 @@ const ServicesPage = () => {
   const [selectedService, setSelectedService] = useState<ServiceProps | null>(
     null
   );
-
+  const isMobile = useIsMobile();
+  const { toast } = useToast();
+  const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
+  
   const services: ServiceProps[] = [
     {
       title: "ITR Filing",
@@ -268,9 +277,21 @@ const ServicesPage = () => {
   ];
 
   const handleWhatsAppClick = (title: string) => {
+    // Show a toast notification when WhatsApp button is clicked
+    toast({
+      title: "Opening WhatsApp",
+      description: `Connecting you about ${title} services`,
+      duration: 3000,
+    });
+    
     const message = `Hello, I would like to inquire about your ${title} service.`;
     window.open(`https://wa.me/919999999999?text=${encodeURIComponent(message)}`, '_blank');
   };
+  
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
@@ -278,68 +299,145 @@ const ServicesPage = () => {
       <div className="pt-24 pb-16 bg-brand-lightgray">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 text-brand-darkblue">
-              Our Services
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive financial and taxation services to help your business thrive in today's complex regulatory environment.
-            </p>
+            <div className="flex flex-col items-center justify-center opacity-0 animate-fade-in" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
+              <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 text-brand-darkblue">
+                Our Services
+              </h1>
+              <div className="w-20 h-1 bg-brand-blue rounded-full mb-4"></div>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                Comprehensive financial and taxation services to help your business thrive in today's complex regulatory environment.
+              </p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="service-card group cursor-pointer animate-fade-in-up"
-                style={{ animationDelay: `${index * 100}ms` }}
-                onClick={() => setSelectedService(service)}
-              >
-                <div className="service-card-icon">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">{service.title}</h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                
-                <div className="flex justify-between items-center mt-4">
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="text-brand-blue border-brand-blue hover:bg-brand-lightblue"
+          {isMobile ? (
+            // Mobile: Accordion-style services layout
+            <div className="space-y-4">
+              {services.map((service, index) => (
+                <div 
+                  key={index} 
+                  className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 animate-fade-in-up"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div 
+                    className="mobile-accordion-header"
+                    onClick={() => setActiveAccordion(activeAccordion === index ? null : index)}
                   >
-                    Learn More
-                  </Button>
-                  
-                  <Button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleWhatsAppClick(service.title);
-                    }}
-                    size="icon"
-                    className="bg-green-500 hover:bg-green-600 text-white rounded-full"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
+                    <div className="flex items-center gap-4">
+                      <div className="service-card-icon !mb-0 !w-12 !h-12">
+                        {service.icon}
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900">{service.title}</h3>
+                    </div>
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="20" 
+                      height="20" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
                       strokeLinejoin="round"
+                      className={`transition-transform duration-300 ${activeAccordion === index ? "rotate-180" : ""}`}
                     >
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                      <path d="m6 9 6 6 6-6"/>
                     </svg>
-                  </Button>
+                  </div>
+                  
+                  <div className={`mobile-accordion-content ${activeAccordion === index ? "open" : ""}`}>
+                    <p className="text-gray-600 mb-4">{service.description}</p>
+                    <Button 
+                      onClick={() => handleWhatsAppClick(service.title)}
+                      className="bg-green-500 hover:bg-green-600 text-white w-full flex items-center justify-center gap-2"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                      </svg>
+                      Chat on WhatsApp
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            // Desktop: Grid layout with enhanced animations
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {services.map((service, index) => {
+                const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.1 });
+                
+                return (
+                  <div
+                    key={index}
+                    ref={ref as React.RefObject<HTMLDivElement>}
+                    className={cn(
+                      "service-card group cursor-pointer",
+                      isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
+                      "transition-all duration-700 ease-out"
+                    )}
+                    style={{ transitionDelay: `${index * 100}ms` }}
+                    onClick={() => setSelectedService(service)}
+                  >
+                    <div className="service-card-icon group-hover:rotate-12 transition-transform duration-500">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2 text-gray-900 group-hover:text-brand-blue transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4">{service.description}</p>
+                    
+                    <div className="flex justify-between items-center mt-4">
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="text-brand-blue border-brand-blue hover:bg-brand-lightblue transform transition duration-300 hover:scale-105 active:scale-95"
+                      >
+                        Learn More
+                      </Button>
+                      
+                      <Button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleWhatsAppClick(service.title);
+                        }}
+                        size="icon"
+                        className="bg-green-500 hover:bg-green-600 text-white rounded-full transform transition duration-300 hover:scale-110 active:scale-95"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                      </Button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
 
       <Dialog open={!!selectedService} onOpenChange={() => setSelectedService(null)}>
-        <DialogContent className="sm:max-w-lg">
+        <DialogContent className="sm:max-w-lg glass">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-2xl">
               <span className="text-brand-blue">{selectedService?.icon}</span>
@@ -359,7 +457,7 @@ const ServicesPage = () => {
                         handleWhatsAppClick(selectedService.title);
                       }
                     }}
-                    className="bg-green-500 hover:bg-green-600 text-white w-full flex items-center justify-center gap-2"
+                    className="bg-green-500 hover:bg-green-600 text-white w-full flex items-center justify-center gap-2 transform transition duration-300 hover:scale-105 active:scale-95"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -380,9 +478,28 @@ const ServicesPage = () => {
               </div>
             </DialogDescription>
           </DialogHeader>
+          <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-accent">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4"
+            >
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+            <span className="sr-only">Close</span>
+          </DialogClose>
         </DialogContent>
       </Dialog>
       <Footer />
+      <WhatsAppButton />
     </>
   );
 };
