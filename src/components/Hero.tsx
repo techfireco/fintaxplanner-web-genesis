@@ -3,12 +3,8 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect } from 'react';
 
 const Hero = () => {
-  const [visible, setVisible] = useState(true); // Changed from false to true
-
-  useEffect(() => {
-    setVisible(true);
-  }, []);
-
+  // Remove the visibility state since we want the component to be fully visible immediately
+  
   const handleWhatsAppClick = () => {
     window.open(`https://wa.me/919999999999?text=${encodeURIComponent('Hello, I would like to inquire about your CA services.')}`, '_blank');
   };
@@ -18,7 +14,7 @@ const Hero = () => {
       <div className="absolute inset-0 hero-pattern"></div>
       <div className="container mx-auto px-4 py-16 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className={`opacity-100 transition-opacity duration-1000`}>
+          <div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 leading-tight mb-6">
               Simplify Your Taxes. <span className="text-brand-blue">Scale Your Business.</span>
             </h1>
@@ -59,7 +55,7 @@ const Hero = () => {
               </Button>
             </div>
           </div>
-          <div className={`opacity-100 transition-opacity duration-1000 delay-300 flex justify-center lg:justify-end`}>
+          <div className="flex justify-center lg:justify-end">
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-brand-blue to-brand-indigo rounded-3xl blur opacity-20"></div>
               <div className="relative bg-white rounded-3xl shadow-xl overflow-hidden">

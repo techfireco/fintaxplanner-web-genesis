@@ -12,6 +12,9 @@ const Index = () => {
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    // Add console log to verify the component is loading properly
+    console.log("Index page loaded, scrolled to top");
   }, []);
   
   return (
