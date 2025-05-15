@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,6 +9,16 @@
 body {
   font-family: 'Inter', sans-serif;
   color: #333;
+  line-height: 1.6;
+}
+
+/* Typography enhancements */
+h1, h2, h3, h4 {
+  line-height: 1.2;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
 }
 
 /* Hero pattern background */
@@ -29,30 +41,79 @@ body {
   animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* Clean card styling */
+/* Enhanced service card styling */
 .service-card-container {
   transition: all 0.3s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
+  border-radius: 1rem;
 }
 
 .service-card-container:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  border-color: rgba(14, 165, 233, 0.2);
 }
 
 .service-card-icon {
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #D3E4FD;
+  color: #0EA5E9;
+  margin-bottom: 1.25rem;
+}
+
+.service-card-container:hover .service-card-icon {
+  transform: rotate(10deg);
+  background-color: #0EA5E9;
+  color: white;
 }
 
 /* Section spacing */
 .section-padding {
-  padding: 4rem 0;
+  padding: 5rem 0;
 }
 
 /* Text styling */
 .text-shadow-sm {
   text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* WhatsApp button styling */
+.whatsapp-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  background-color: #25D366;
+  color: white;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-button:active {
+  transform: scale(0.95);
 }
 
 /* Mobile accordion for services */
@@ -74,4 +135,54 @@ body {
 .mobile-accordion-content.open {
   height: auto;
   padding: 0 1rem 1rem;
+}
+
+/* Feature card hover effect */
+.feature-card {
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+}
+
+.feature-card:hover .feature-icon {
+  transform: rotate(10deg);
+  background-color: #0EA5E9;
+  color: white;
+}
+
+/* Testimonial card styling */
+.testimonial-card {
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Enhanced buttons */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.btn-primary:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
 }

@@ -2,8 +2,15 @@
 import ServiceCard from './ServiceCard';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useIntersectionObserver } from "@/hooks/use-animation";
+import { cn } from "@/lib/utils";
 
 const Services = () => {
+  const { ref, isIntersecting } = useIntersectionObserver({
+    threshold: 0.1,
+    rootMargin: "0px 0px -100px 0px"
+  });
+
   const services = [
     {
       title: "ITR Filing",
@@ -140,12 +147,25 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section 
+      ref={ref as React.RefObject<HTMLDivElement>} 
+      id="services" 
+      className="py-20 bg-gray-50"
+    >
+      <div 
+        className={cn(
+          "container mx-auto px-4 transition-all duration-1000 ease-out",
+          isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        )}
+      >
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Our Services</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Comprehensive financial and taxation services to help your business grow.
+          <span className="text-brand-blue font-medium">Our Expertise</span>
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-4 mt-2">
+            Comprehensive Financial Services
+          </h2>
+          <div className="w-24 h-1 bg-brand-blue mx-auto mb-6 rounded-full"></div>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Tailored financial and taxation solutions to help your business grow and stay compliant.
           </p>
         </div>
 
@@ -156,14 +176,14 @@ const Services = () => {
               title={service.title}
               description={service.description}
               icon={service.icon}
-              delay={index * 100}
+              delay={index * 150}
             />
           ))}
         </div>
         
         <div className="mt-12 text-center">
           <Link to="/services">
-            <Button className="bg-brand-blue hover:bg-brand-darkblue text-white">
+            <Button className="bg-brand-blue hover:bg-brand-darkblue text-white px-8 py-6 h-auto text-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
               View All Services
             </Button>
           </Link>

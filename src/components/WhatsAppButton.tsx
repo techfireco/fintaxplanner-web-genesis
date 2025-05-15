@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
 
 const WhatsAppButton = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -33,18 +34,20 @@ const WhatsAppButton = () => {
 
   return (
     <button 
-      className={`whatsapp-button ${isAnimating ? 'animate-bounce' : ''} ${
+      className={cn(
+        "whatsapp-button z-50",
+        isAnimating ? "animate-bounce" : "animate-pulse",
         isMobile 
-          ? `${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'} fixed bottom-6 right-6` 
-          : 'fixed bottom-6 right-6'
-      } transition-all duration-300 ease-in-out`}
+          ? `${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"} fixed bottom-6 right-6` 
+          : "fixed bottom-6 right-6"
+      )}
       onClick={handleWhatsAppClick}
       aria-label="Chat on WhatsApp"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
+        width="28"
+        height="28"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"

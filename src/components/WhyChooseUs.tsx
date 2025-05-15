@@ -1,5 +1,7 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useIntersectionObserver } from '@/hooks/use-animation';
+import { cn } from '@/lib/utils';
 
 interface FeatureProps {
   title: string;
@@ -9,27 +11,25 @@ interface FeatureProps {
 }
 
 const Feature: React.FC<FeatureProps> = ({ title, description, icon, index }) => {
-  const [isVisible, setIsVisible] = useState(true); // Initialize as true for immediate visibility
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 300 + index * 150);
-
-    return () => clearTimeout(timer);
-  }, [index]);
+  const { ref, isIntersecting } = useIntersectionObserver({
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  });
 
   return (
     <div 
-      className={`flex items-start transition-all duration-700 ${
-        isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
-      }`}
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className={cn(
+        "flex items-start feature-card group transition-all duration-700 ease-out",
+        isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      )}
+      style={{ transitionDelay: `${index * 150}ms` }}
     >
-      <div className="bg-brand-lightblue rounded-full p-3 mr-4 text-brand-blue">
+      <div className="feature-icon bg-brand-lightblue rounded-full p-3 mr-4 text-brand-blue transition-all duration-300">
         {icon}
       </div>
       <div>
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
+        <h3 className="text-xl font-semibold mb-2 group-hover:text-brand-blue transition-colors duration-300">{title}</h3>
         <p className="text-gray-600">{description}</p>
       </div>
     </div>
@@ -37,6 +37,11 @@ const Feature: React.FC<FeatureProps> = ({ title, description, icon, index }) =>
 };
 
 const WhyChooseUs = () => {
+  const { ref, isIntersecting } = useIntersectionObserver({
+    threshold: 0.1,
+    rootMargin: "0px 0px -100px 0px"
+  });
+
   const features = [
     {
       title: "Expert Team of CAs",
@@ -124,14 +129,23 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section id="about" className="py-16 bg-white">
+    <section 
+      ref={ref as React.RefObject<HTMLDivElement>} 
+      id="about" 
+      className="py-20 bg-white"
+    >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-              Why Choose <span className="text-brand-blue">Fintaxplanner</span>
+          <div className={cn(
+            "transition-all duration-1000 ease-out",
+            isIntersecting ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+          )}>
+            <span className="text-brand-blue font-medium">Why Choose Us</span>
+            <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-4 mt-2">
+              We Make Tax Filing <span className="text-brand-blue">Simple</span>
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <div className="w-20 h-1 bg-brand-blue rounded-full mb-6"></div>
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
               We combine expertise with modern technology to deliver exceptional financial services tailored to your needs.
             </p>
             
@@ -148,7 +162,10 @@ const WhyChooseUs = () => {
             </div>
           </div>
           
-          <div className="relative animate-fade-in">
+          <div className={cn(
+            "relative transition-all duration-1000 ease-out",
+            isIntersecting ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+          )}>
             <div className="absolute -inset-1 bg-gradient-to-r from-brand-blue to-brand-indigo rounded-3xl blur opacity-20"></div>
             <div className="relative bg-white rounded-3xl shadow-xl overflow-hidden">
               <img
