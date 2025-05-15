@@ -3,8 +3,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Add custom styles here */
+/* Base styling for the website */
+body {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
 
+/* Hero pattern background */
 .hero-pattern {
   background-image: radial-gradient(rgba(79, 70, 229, 0.3) 0.5px, transparent 0.5px);
   background-size: 20px 20px;
@@ -14,7 +19,7 @@
   z-index: 0;
 }
 
-/* Add additional animation classes for better visibility */
+/* Animation classes */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -24,23 +29,49 @@
   animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* Enhance card hover effects */
-.hover-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Clean card styling */
+.service-card-container {
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.hover-card:hover {
+.service-card-container:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Improve section spacing */
+.service-card-icon {
+  transition: all 0.3s ease;
+}
+
+/* Section spacing */
 .section-padding {
   padding: 4rem 0;
 }
 
-/* Better text readability */
+/* Text styling */
 .text-shadow-sm {
-  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
+/* Mobile accordion for services */
+.mobile-accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.mobile-accordion-content {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  padding: 0 1rem;
+}
+
+.mobile-accordion-content.open {
+  height: auto;
+  padding: 0 1rem 1rem;
+}
