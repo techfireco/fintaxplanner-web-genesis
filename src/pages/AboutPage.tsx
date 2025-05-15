@@ -1,13 +1,11 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 interface TeamMemberProps {
   name: string;
   position: string;
   description: string;
-  imageUrl: string;
 }
 
 const AboutPage = () => {
@@ -17,21 +15,18 @@ const AboutPage = () => {
       position: "Founder & Senior Chartered Accountant",
       description:
         "With over 15 years of experience in taxation and finance, Abdul has helped hundreds of businesses optimize their tax strategies and achieve financial clarity.",
-      imageUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.0",
     },
     {
       name: "Priya Sharma",
       position: "GST & Compliance Specialist",
       description:
         "Priya specializes in GST compliance and corporate regulatory matters, bringing 8 years of expertise in helping businesses navigate complex compliance requirements.",
-      imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.0",
     },
     {
       name: "Rahul Mehta",
       position: "Tax Planning Advisor",
       description:
         "Rahul is an expert in strategic tax planning for individuals and businesses, with particular focus on optimizing tax efficiency for startups and growing companies.",
-      imageUrl: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.0",
     },
   ];
 
@@ -103,38 +98,25 @@ const AboutPage = () => {
 
           {/* Founder Profile */}
           <div className="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100 mb-20">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div>
-                <div className="rounded-xl overflow-hidden">
-                  <AspectRatio ratio={1/1} className="bg-muted">
-                    <img
-                      src={teamMembers[0].imageUrl}
-                      alt={teamMembers[0].name}
-                      className="object-cover w-full h-full"
-                    />
-                  </AspectRatio>
-                </div>
-              </div>
-              <div className="md:col-span-2">
-                <h2 className="text-3xl font-display font-bold mb-2 text-brand-darkblue">
-                  {teamMembers[0].name}
-                </h2>
-                <p className="text-brand-blue font-medium mb-4">{teamMembers[0].position}</p>
-                
-                <div className="space-y-4 text-gray-700">
-                  <p>
-                    Abdul Razzaq founded Fintaxplanner with a vision to make professional financial services accessible to businesses of all sizes across India.
-                  </p>
-                  <p>
-                    With extensive experience in taxation, accounting, and business advisory, Abdul has helped numerous organizations optimize their tax strategies and achieve financial clarity.
-                  </p>
-                  <p>
-                    He is a Fellow Member of the Institute of Chartered Accountants of India and holds specializations in International Taxation and GST implementations.
-                  </p>
-                  <p>
-                    Under his leadership, Fintaxplanner has grown from a small practice to a comprehensive financial services firm serving clients nationwide.
-                  </p>
-                </div>
+            <div>
+              <h2 className="text-3xl font-display font-bold mb-2 text-brand-darkblue">
+                {teamMembers[0].name}
+              </h2>
+              <p className="text-brand-blue font-medium mb-4">{teamMembers[0].position}</p>
+              
+              <div className="space-y-4 text-gray-700">
+                <p>
+                  Abdul Razzaq founded Fintaxplanner with a vision to make professional financial services accessible to businesses of all sizes across India.
+                </p>
+                <p>
+                  With extensive experience in taxation, accounting, and business advisory, Abdul has helped numerous organizations optimize their tax strategies and achieve financial clarity.
+                </p>
+                <p>
+                  He is a Fellow Member of the Institute of Chartered Accountants of India and holds specializations in International Taxation and GST implementations.
+                </p>
+                <p>
+                  Under his leadership, Fintaxplanner has grown from a small practice to a comprehensive financial services firm serving clients nationwide.
+                </p>
               </div>
             </div>
           </div>
@@ -194,15 +176,6 @@ const AboutPage = () => {
                   className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 animate-fade-in-up"
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
-                  <div className="rounded-lg overflow-hidden mb-4">
-                    <AspectRatio ratio={4/3} className="bg-muted">
-                      <img
-                        src={member.imageUrl}
-                        alt={member.name}
-                        className="object-cover w-full h-full"
-                      />
-                    </AspectRatio>
-                  </div>
                   <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
                   <p className="text-brand-blue font-medium mb-3">{member.position}</p>
                   <p className="text-gray-600">{member.description}</p>

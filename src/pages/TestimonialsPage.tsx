@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -211,7 +210,7 @@ const TestimonialsPage = () => {
             </div>
           )}
 
-          {/* Call to Action */}
+          {/* Call to Action - Modified to keep only WhatsApp button */}
           <div className="mt-16 bg-brand-lightblue rounded-xl p-8 text-center">
             <h2 className="text-2xl md:text-3xl font-display font-bold mb-4 text-brand-darkblue">
               Ready to Experience Our Services?
@@ -219,13 +218,7 @@ const TestimonialsPage = () => {
             <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
               Join our growing list of satisfied clients and let us help you with your financial and taxation needs.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                className="bg-brand-blue hover:bg-brand-darkblue"
-                onClick={() => window.location.href = '/contact'}
-              >
-                Contact Us
-              </Button>
+            <div className="flex justify-center">
               <Button 
                 variant="outline"
                 className="border-brand-blue text-brand-blue hover:bg-brand-lightblue"

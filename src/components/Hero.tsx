@@ -1,17 +1,14 @@
 
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from 'react';
 
 const Hero = () => {
-  // Remove the visibility state since we want the component to be fully visible immediately
-  
   const handleWhatsAppClick = () => {
     window.open(`https://wa.me/919999999999?text=${encodeURIComponent('Hello, I would like to inquire about your CA services.')}`, '_blank');
   };
 
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-16 overflow-hidden">
-      <div className="absolute inset-0 hero-pattern"></div>
+      <div className="absolute inset-0 hero-pattern pointer-events-none"></div>
       <div className="container mx-auto px-4 py-16 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>

@@ -1,5 +1,7 @@
 
 import ServiceCard from './ServiceCard';
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const services = [
@@ -157,6 +159,14 @@ const Services = () => {
               delay={index * 100}
             />
           ))}
+        </div>
+        
+        <div className="mt-12 text-center">
+          <Link to="/services">
+            <Button className="bg-brand-blue hover:bg-brand-darkblue text-white">
+              View All Services
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
