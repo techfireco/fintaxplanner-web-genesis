@@ -9,7 +9,7 @@ interface FeatureProps {
 }
 
 const Feature: React.FC<FeatureProps> = ({ title, description, icon, index }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true); // Initialize as true for immediate visibility
 
   useEffect(() => {
     const timer = setTimeout(() => {

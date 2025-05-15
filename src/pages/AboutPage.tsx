@@ -64,7 +64,7 @@ const AboutPage = () => {
       <div className="pt-24 pb-16">
         <div className="container mx-auto px-4">
           {/* Hero Section */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-fade">
             <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 text-brand-darkblue">
               About Fintaxplanner
             </h1>
@@ -75,7 +75,7 @@ const AboutPage = () => {
 
           {/* Mission & Vision */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
-            <div className="bg-brand-lightgray p-8 rounded-xl animate-fade-in-up">
+            <div className="bg-brand-lightgray p-8 rounded-xl animate-fade-in-up hover-card">
               <h2 className="text-2xl font-display font-bold mb-4 text-brand-darkblue">Our Mission</h2>
               <p className="text-gray-700 mb-4">
                 To empower businesses and individuals with strategic financial guidance and tax solutions that drive growth and ensure compliance.
@@ -85,7 +85,7 @@ const AboutPage = () => {
               </p>
             </div>
 
-            <div className="bg-brand-lightgray p-8 rounded-xl animate-fade-in-up animation-delay-200">
+            <div className="bg-brand-lightgray p-8 rounded-xl animate-fade-in-up animation-delay-200 hover-card">
               <h2 className="text-2xl font-display font-bold mb-4 text-brand-darkblue">Our Vision</h2>
               <p className="text-gray-700 mb-4">
                 To be the most trusted taxation and financial advisory firm in India, recognized for our integrity, innovation, and client-centric approach.
@@ -97,7 +97,7 @@ const AboutPage = () => {
           </div>
 
           {/* Founder Profile */}
-          <div className="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100 mb-20">
+          <div className="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100 mb-20 hover-card">
             <div>
               <h2 className="text-3xl font-display font-bold mb-2 text-brand-darkblue">
                 {teamMembers[0].name}
@@ -146,7 +146,7 @@ const AboutPage = () => {
                     
                     {/* Content */}
                     <div className="ml-10 md:ml-0 md:w-5/12 pb-8 md:pb-0">
-                      <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-100">
+                      <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-100 hover-card">
                         <div className="inline-block px-4 py-1 rounded-full bg-brand-lightblue text-brand-blue font-semibold mb-2">
                           {event.year}
                         </div>
@@ -173,7 +173,7 @@ const AboutPage = () => {
               {teamMembers.slice(1).map((member, index) => (
                 <div 
                   key={index} 
-                  className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 animate-fade-in-up"
+                  className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 animate-fade-in-up hover-card"
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
                   <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
