@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -24,8 +23,8 @@ const ContactPage = () => {
         </svg>
       ),
       title: "Phone",
-      value: "+91 9818404651",
-      action: "tel:+919818404651",
+      value: "+91 8447973745",
+      action: "tel:+918447973745",
     },
     {
       icon: (
@@ -46,8 +45,8 @@ const ContactPage = () => {
         </svg>
       ),
       title: "Email",
-      value: "abdulr2144@gmail.com",
-      action: "mailto:abdulr2144@gmail.com",
+      value: "accounts@fintaxplanner.com",
+      action: "mailto:accounts@fintaxplanner.com",
     },
     {
       icon: (
@@ -115,7 +114,7 @@ const ContactPage = () => {
               {contactDetails.map((detail, index) => (
                 <div 
                   key={index}
-                  className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center animate-fade-in-up"
+                  className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center animate-fade-in-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="w-12 h-12 flex items-center justify-center rounded-full bg-brand-lightblue mb-4">
@@ -134,7 +133,7 @@ const ContactPage = () => {
             </div>
 
             {/* Service Highlights */}
-            <div className="bg-brand-lightgray p-8 rounded-xl mb-8">
+            <div className="bg-brand-lightgray p-8 rounded-2xl mb-8">
               <h3 className="text-2xl font-semibold mb-6 text-center text-brand-darkblue">Our Core Services</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex items-center space-x-3">
@@ -165,7 +164,7 @@ const ContactPage = () => {
             </div>
 
             {/* WhatsApp CTA */}
-            <div className="bg-green-500 p-8 rounded-xl text-white text-center">
+            <div className="bg-green-500 p-8 rounded-2xl text-white text-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="48"
@@ -185,9 +184,9 @@ const ContactPage = () => {
               <Button 
                 variant="secondary"
                 size="lg"
-                className="bg-white text-green-600 hover:bg-green-50"
+                className="bg-white text-green-600 hover:bg-green-50 rounded-2xl"
                 onClick={() => {
-                  window.open(`https://wa.me/919818404651?text=${encodeURIComponent("Hello, I'd like to schedule a free consultation about your accounting services.")}`, '_blank');
+                  window.open(`https://wa.me/918447973745?text=${encodeURIComponent("Hello, I'd like to schedule a free consultation about your accounting services.")}`, '_blank');
                 }}
               >
                 <svg
@@ -250,7 +249,7 @@ const ScrollToTopButton = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 left-6 z-40 p-2 bg-brand-blue text-white rounded-full shadow-lg hover:bg-brand-darkblue transition-colors"
+          className="fixed bottom-6 left-6 z-40 p-2 bg-brand-blue text-white rounded-2xl shadow-lg hover:bg-brand-darkblue transition-colors"
           aria-label="Scroll to top"
         >
           <svg

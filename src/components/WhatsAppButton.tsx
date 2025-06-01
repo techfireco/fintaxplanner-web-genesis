@@ -12,7 +12,7 @@ const WhatsAppButton = () => {
   const handleWhatsAppClick = () => {
     setIsAnimating(true);
     setTimeout(() => setIsAnimating(false), 500);
-    window.open(`https://wa.me/919818404651?text=${encodeURIComponent('Hello, I would like to inquire about your accounting and tax services.')}`, '_blank');
+    window.open(`https://wa.me/918447973745?text=${encodeURIComponent('Hello, I would like to inquire about your accounting and tax services.')}`, '_blank');
   };
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const WhatsAppButton = () => {
   return (
     <button 
       className={cn(
-        "whatsapp-button z-50",
+        "whatsapp-button z-50 rounded-2xl",
         isAnimating ? "animate-bounce" : "animate-pulse",
         isMobile 
           ? `${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"} fixed bottom-6 right-6` 

@@ -93,14 +93,14 @@ h1, h2, h3, h4 {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* WhatsApp button styling */
+/* WhatsApp button styling with Apple-style radius */
 .whatsapp-button {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 56px;
   height: 56px;
-  border-radius: 28px;
+  border-radius: 16px;
   background-color: #25D366;
   color: white;
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
@@ -162,11 +162,12 @@ h1, h2, h3, h4 {
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-/* Enhanced buttons */
+/* Enhanced buttons with Apple-style radius */
 .btn-primary {
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  border-radius: 16px;
 }
 
 .btn-primary::after {
