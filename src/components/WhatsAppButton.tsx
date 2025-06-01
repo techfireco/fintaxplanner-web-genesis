@@ -12,7 +12,7 @@ const WhatsAppButton = () => {
   const handleWhatsAppClick = () => {
     setIsAnimating(true);
     setTimeout(() => setIsAnimating(false), 500);
-    window.open(`https://wa.me/919999999999?text=${encodeURIComponent('Hello, I would like to inquire about your CA services.')}`, '_blank');
+    window.open(`https://wa.me/919818404651?text=${encodeURIComponent('Hello, I would like to inquire about your accounting and tax services.')}`, '_blank');
   };
 
   useEffect(() => {

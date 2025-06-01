@@ -24,8 +24,8 @@ const ContactPage = () => {
         </svg>
       ),
       title: "Phone",
-      value: "+91 99999 99999",
-      action: "tel:+919999999999",
+      value: "+91 9818404651",
+      action: "tel:+919818404651",
     },
     {
       icon: (
@@ -46,8 +46,8 @@ const ContactPage = () => {
         </svg>
       ),
       title: "Email",
-      value: "info@fintaxplanner.com",
-      action: "mailto:info@fintaxplanner.com",
+      value: "abdulr2144@gmail.com",
+      action: "mailto:abdulr2144@gmail.com",
     },
     {
       icon: (
@@ -67,9 +67,9 @@ const ContactPage = () => {
           <circle cx="12" cy="10" r="3" />
         </svg>
       ),
-      title: "Address",
-      value: "123 Finance Street, Mumbai 400001",
-      action: "https://maps.google.com",
+      title: "Service Area",
+      value: "Pan-India Coverage",
+      action: null,
     },
     {
       icon: (
@@ -89,8 +89,8 @@ const ContactPage = () => {
           <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
         </svg>
       ),
-      title: "Business Hours",
-      value: "Mon-Sat: 10:00 AM - 7:00 PM",
+      title: "Experience",
+      value: "9+ Years in Industry",
       action: null,
     },
   ];
@@ -105,7 +105,7 @@ const ContactPage = () => {
               Get in Touch
             </h1>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Have questions about our services? Need expert financial advice? We're here to help.
+              Ready to simplify your finances? Let's take the stress out of your accounting and tax work.
             </p>
           </div>
 
@@ -133,6 +133,37 @@ const ContactPage = () => {
               ))}
             </div>
 
+            {/* Service Highlights */}
+            <div className="bg-brand-lightgray p-8 rounded-xl mb-8">
+              <h3 className="text-2xl font-semibold mb-6 text-center text-brand-darkblue">Our Core Services</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex items-center space-x-3">
+                  <span className="text-green-500">✅</span>
+                  <span>Accounting & Bookkeeping</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <span className="text-green-500">✅</span>
+                  <span>GST Services & Compliance</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <span className="text-green-500">✅</span>
+                  <span>TDS & Tax Compliance</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <span className="text-green-500">✅</span>
+                  <span>Payroll Processing with KEKA</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <span className="text-green-500">✅</span>
+                  <span>Statutory Filings & Compliance</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <span className="text-green-500">✅</span>
+                  <span>Expertise in Tally, Zoho & More</span>
+                </div>
+              </div>
+            </div>
+
             {/* WhatsApp CTA */}
             <div className="bg-green-500 p-8 rounded-xl text-white text-center">
               <svg
@@ -149,14 +180,14 @@ const ContactPage = () => {
               >
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
-              <h3 className="text-2xl font-semibold mb-4">Chat Directly with Our Experts</h3>
-              <p className="text-lg mb-6">Get immediate assistance for all your taxation and financial queries</p>
+              <h3 className="text-2xl font-semibold mb-4">Schedule a Free Consultation</h3>
+              <p className="text-lg mb-6">Get immediate assistance for all your accounting and tax queries</p>
               <Button 
                 variant="secondary"
                 size="lg"
                 className="bg-white text-green-600 hover:bg-green-50"
                 onClick={() => {
-                  window.open(`https://wa.me/919999999999?text=${encodeURIComponent("Hello, I'd like to know more about your services.")}`, '_blank');
+                  window.open(`https://wa.me/919818404651?text=${encodeURIComponent("Hello, I'd like to schedule a free consultation about your accounting services.")}`, '_blank');
                 }}
               >
                 <svg

@@ -13,8 +13,48 @@ const Services = () => {
 
   const services = [
     {
-      title: "ITR Filing",
-      description: "Accurate and timely filing of Income Tax Returns for individuals and businesses.",
+      title: "Accounting & Bookkeeping",
+      description: "End-to-end bookkeeping, financial statements, MIS reporting, and reconciliations with automation support.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+        </svg>
+      ),
+    },
+    {
+      title: "GST Services",
+      description: "GST registration, return filing, reconciliation with GSTR-2B, notice handling, and e-commerce compliance.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+        </svg>
+      ),
+    },
+    {
+      title: "TDS & Tax Compliance",
+      description: "TDS computation, return filing, Form 16/16A generation, and advisory on withholding tax obligations.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -36,8 +76,8 @@ const Services = () => {
       ),
     },
     {
-      title: "GST Filing & Registration",
-      description: "Comprehensive GST services including registration, filing and compliance management.",
+      title: "Payroll Processing",
+      description: "Monthly payroll using KEKA, employee onboarding, salary structuring, and investment declaration support.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -50,14 +90,16 @@ const Services = () => {
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
         </svg>
       ),
     },
     {
-      title: "Company Incorporation",
-      description: "End-to-end support for registering your business as a private limited company or LLP.",
+      title: "Statutory Filings & Compliance",
+      description: "MSME, ARFLA filings, audit support, and coordination with auditors and regulatory bodies.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -70,42 +112,17 @@ const Services = () => {
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
-          <path d="M9 9h6v6H9z" />
-          <path d="M9 1v3" />
-          <path d="M15 1v3" />
-          <path d="M9 20v3" />
-          <path d="M15 20v3" />
-          <path d="M20 9h3" />
-          <path d="M20 14h3" />
-          <path d="M1 9h3" />
-          <path d="M1 14h3" />
+          <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+          <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z" />
+          <line x1="9" y1="9" x2="10" y2="9" />
+          <line x1="9" y1="13" x2="15" y2="13" />
+          <line x1="9" y1="17" x2="15" y2="17" />
         </svg>
       ),
     },
     {
-      title: "Audit Services",
-      description: "Statutory audits, internal audits, and tax audits for businesses and organizations.",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <path d="M12 8v4l3 3" />
-        </svg>
-      ),
-    },
-    {
-      title: "Tax Planning",
-      description: "Strategic tax planning to optimize finances and ensure compliance.",
+      title: "Tax Planning & Advisory",
+      description: "Strategic tax planning to optimize finances, investment advisory, and ensure regulatory compliance.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -120,27 +137,6 @@ const Services = () => {
         >
           <line x1="12" y1="1" x2="12" y2="23" />
           <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-        </svg>
-      ),
-    },
-    {
-      title: "NRI Tax Services",
-      description: "Specialized tax services for Non-Resident Indians with international income.",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <line x1="2" y1="12" x2="22" y2="12" />
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
         </svg>
       ),
     },
@@ -159,13 +155,14 @@ const Services = () => {
         )}
       >
         <div className="text-center mb-16">
-          <span className="text-brand-blue font-medium">Our Expertise</span>
+          <span className="text-brand-blue font-medium">Our Services</span>
           <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-4 mt-2">
-            Comprehensive Financial Services
+            Comprehensive Accounting & Tax Solutions
           </h2>
           <div className="w-24 h-1 bg-brand-blue mx-auto mb-6 rounded-full"></div>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Tailored financial and taxation solutions to help your business grow and stay compliant.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Tailored accounting and tax services designed to meet the needs of businesses across India. 
+            From startups to growing enterprises, we ensure compliance, accuracy, and financial clarity.
           </p>
         </div>
 

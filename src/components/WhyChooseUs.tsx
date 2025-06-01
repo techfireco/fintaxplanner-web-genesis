@@ -44,8 +44,48 @@ const WhyChooseUs = () => {
 
   const features = [
     {
-      title: "Expert Team of CAs",
-      description: "Our team consists of experienced Chartered Accountants with diverse expertise.",
+      title: "9+ Years of Industry Experience",
+      description: "Deep expertise in accounting, GST compliance, and TDS filings across various industries.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 8v4l3 3" />
+        </svg>
+      ),
+    },
+    {
+      title: "Pan-India Clientele",
+      description: "Serving clients across all states with dedicated support for businesses of all sizes.",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <circle cx="12" cy="10" r="3" />
+          <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
+        </svg>
+      ),
+    },
+    {
+      title: "Personalized & Transparent Service",
+      description: "Timely, personalized service with complete transparency in all our processes and pricing.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -66,48 +106,8 @@ const WhyChooseUs = () => {
       ),
     },
     {
-      title: "Fast Turnaround",
-      description: "Quick response and fast service delivery for all your taxation needs.",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <polyline points="12 6 12 12 16 14" />
-        </svg>
-      ),
-    },
-    {
-      title: "PAN India Support",
-      description: "Serving clients across all states and union territories in India.",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <circle cx="12" cy="10" r="3" />
-          <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
-        </svg>
-      ),
-    },
-    {
-      title: "100% Digital Process",
-      description: "Fully digital workflows for document submission, approval, and filing.",
+      title: "Leading Accounting Tools Expertise",
+      description: "Proficiency in Tally, Zoho, KEKA, and other modern accounting tools for efficient automation.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -142,11 +142,12 @@ const WhyChooseUs = () => {
           )}>
             <span className="text-brand-blue font-medium">Why Choose Us</span>
             <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-4 mt-2">
-              We Make Tax Filing <span className="text-brand-blue">Simple</span>
+              Trusted Financial <span className="text-brand-blue">Partners</span>
             </h2>
             <div className="w-20 h-1 bg-brand-blue rounded-full mb-6"></div>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              We combine expertise with modern technology to deliver exceptional financial services tailored to your needs.
+              We combine years of experience with modern technology to deliver exceptional accounting and tax services 
+              tailored to your business needs across India.
             </p>
             
             <div className="space-y-8">
