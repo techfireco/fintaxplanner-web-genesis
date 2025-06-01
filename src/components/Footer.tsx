@@ -1,5 +1,26 @@
 
 const Footer = () => {
+  const handleQuickLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    
+    if (href.startsWith('#')) {
+      // For hash links, check if we're on home page
+      if (window.location.pathname === '/') {
+        // We're on home page, scroll to section
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // Navigate to home page with hash
+        window.location.href = '/' + href;
+      }
+    } else {
+      // For regular page links
+      window.location.href = href;
+    }
+  };
+
   return (
     <footer id="contact" className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-4">
@@ -75,19 +96,49 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#home" className="text-gray-300 hover:text-brand-blue transition-colors">Home</a>
+                <a 
+                  href="#home" 
+                  onClick={(e) => handleQuickLinkClick(e, '#home')}
+                  className="text-gray-300 hover:text-brand-blue transition-colors cursor-pointer"
+                >
+                  Home
+                </a>
               </li>
               <li>
-                <a href="#about" className="text-gray-300 hover:text-brand-blue transition-colors">About Us</a>
+                <a 
+                  href="/about" 
+                  onClick={(e) => handleQuickLinkClick(e, '/about')}
+                  className="text-gray-300 hover:text-brand-blue transition-colors cursor-pointer"
+                >
+                  About Us
+                </a>
               </li>
               <li>
-                <a href="#services" className="text-gray-300 hover:text-brand-blue transition-colors">Our Services</a>
+                <a 
+                  href="/services" 
+                  onClick={(e) => handleQuickLinkClick(e, '/services')}
+                  className="text-gray-300 hover:text-brand-blue transition-colors cursor-pointer"
+                >
+                  Our Services
+                </a>
               </li>
               <li>
-                <a href="#testimonials" className="text-gray-300 hover:text-brand-blue transition-colors">Testimonials</a>
+                <a 
+                  href="/testimonials" 
+                  onClick={(e) => handleQuickLinkClick(e, '/testimonials')}
+                  className="text-gray-300 hover:text-brand-blue transition-colors cursor-pointer"
+                >
+                  Testimonials
+                </a>
               </li>
               <li>
-                <a href="#contact" className="text-gray-300 hover:text-brand-blue transition-colors">Contact</a>
+                <a 
+                  href="/contact" 
+                  onClick={(e) => handleQuickLinkClick(e, '/contact')}
+                  className="text-gray-300 hover:text-brand-blue transition-colors cursor-pointer"
+                >
+                  Contact
+                </a>
               </li>
             </ul>
           </div>

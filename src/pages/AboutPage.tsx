@@ -154,14 +154,14 @@ const AboutPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
-                href="tel:+919818404651" 
-                className="bg-brand-blue text-white px-6 py-3 rounded-lg hover:bg-brand-darkblue transition-colors"
+                href="tel:+918447973745" 
+                className="bg-brand-blue text-white px-6 py-3 rounded-2xl hover:bg-brand-darkblue transition-colors"
               >
                 📞 Call us today
               </a>
               <a 
-                href="mailto:abdulr2144@gmail.com" 
-                className="bg-white text-brand-blue px-6 py-3 rounded-lg border border-brand-blue hover:bg-brand-lightblue transition-colors"
+                href="mailto:accounts@fintaxplanner.com" 
+                className="bg-white text-brand-blue px-6 py-3 rounded-2xl border border-brand-blue hover:bg-brand-lightblue transition-colors"
               >
                 📧 Drop us a message
               </a>
