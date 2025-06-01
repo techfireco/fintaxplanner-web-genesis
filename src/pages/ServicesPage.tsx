@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -285,7 +284,7 @@ const ServicesPage = () => {
     });
     
     const message = `Hello, I would like to inquire about your ${title} service.`;
-    window.open(`https://wa.me/919999999999?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/918447973745?text=${encodeURIComponent(message)}`, '_blank');
   };
   
   // Scroll to top on mount
