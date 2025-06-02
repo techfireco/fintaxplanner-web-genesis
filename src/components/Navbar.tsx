@@ -96,7 +96,7 @@ const Navbar = () => {
               </Button>
             </DrawerTrigger>
             
-            <DrawerContent>
+            <DrawerContent className="bg-white">
               <div className="p-6">
                 <div className="mb-6 flex items-center justify-between">
                   <Link to="/" className="text-xl font-display font-bold text-brand-darkblue" onClick={() => setDrawerOpen(false)}>
