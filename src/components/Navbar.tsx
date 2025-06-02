@@ -137,7 +137,7 @@ const Navbar = () => {
                 <div className="mt-8 flex flex-col space-y-4">
                   <Button 
                     onClick={() => {
-                      window.open(`https://wa.me/919999999999?text=${encodeURIComponent("Hello, I'd like to know more about your services.")}`, '_blank');
+                      window.open(`https://wa.me/918447973745?text=${encodeURIComponent("Hello, I'd like to know more about your services.")}`, '_blank');
                       setDrawerOpen(false);
                     }}
                     className="bg-green-500 hover:bg-green-600 w-full flex items-center justify-center gap-2"

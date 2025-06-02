@@ -10,7 +10,7 @@ const Hero = () => {
   }, []);
 
   const handleWhatsAppClick = () => {
-    window.open(`https://wa.me/919999999999?text=${encodeURIComponent('Hello, I would like to inquire about your CA services.')}`, '_blank');
+    window.open(`https://wa.me/918447973745?text=${encodeURIComponent('Hello, I would like to inquire about your CA services.')}`, '_blank');
   };
 
   return (
@@ -19,7 +19,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-16 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className={`transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <span className="inline-block px-4 py-1 bg-brand-lightblue text-brand-blue rounded-full mb-4 text-sm font-medium">Trusted CA Services Since 2010</span>
+            <span className="inline-block px-4 py-1 bg-brand-lightblue text-brand-blue rounded-full mb-4 text-sm font-medium">Trusted CA Services Since 2015</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-gray-900 leading-tight mb-6">
               Simplify Your Taxes. <br /><span className="text-brand-blue">Scale Your Business.</span>
             </h1>
