@@ -53,18 +53,8 @@ const Navbar = () => {
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 z-30 w-full transition-all duration-300 ${
-        scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
-      }`}
-    >
+    <nav className="fixed top-0 left-0 z-30 w-full bg-white shadow-sm">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center">
-          <Link to="/" className="text-xl font-display font-bold text-brand-darkblue">
-            Fintax<span className="text-brand-blue">planner</span>
-          </Link>
-        </div>
-
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item, index) => (
             <Link
@@ -94,9 +84,7 @@ const Navbar = () => {
               <SheetHeader className="p-6 pb-4 border-b">
                 <div className="flex items-center justify-between">
                   <SheetTitle>
-                    <Link to="/" className="text-xl font-display font-bold text-brand-darkblue" onClick={() => setSheetOpen(false)}>
-                      Fintax<span className="text-brand-blue">planner</span>
-                    </Link>
+                    Menu
                   </SheetTitle>
                   <SheetClose asChild>
                     <Button variant="ghost" size="icon" className="h-8 w-8 rounded-lg">
