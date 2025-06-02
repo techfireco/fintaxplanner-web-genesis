@@ -5,7 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/fintaxplanner/' : '/', // 👈 REQUIRED for GitHub Pages
+  base: "/", // ✅ Add this line for Vercel
+
   server: {
     host: "::",
     port: 8080,
