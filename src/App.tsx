@@ -11,6 +11,9 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import TestimonialsPage from "./pages/TestimonialsPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import Gstr3BInterestLateFeeCalculator from "./pages/Gstr3BInterestLateFeeCalculator";
+import BlogPage from "./pages/BlogPage";
+import BlogPostPage from "./pages/BlogPostPage";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +58,12 @@ const AppRoutes = () => {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/testimonials" element={<TestimonialsPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route
+          path="/gstr-3b-interest-late-fee-calculator"
+          element={<Gstr3BInterestLateFeeCalculator />}
+        />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

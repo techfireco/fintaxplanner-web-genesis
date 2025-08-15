@@ -45,6 +45,7 @@ const Navbar = () => {
     { label: "Home", link: "/", action: null },
     { label: "About", link: "/about", action: null },
     { label: "Services", link: "/services", action: null },
+    { label: "Blog", link: "/blog", action: null },
     { label: "Testimonials", link: "/testimonials", action: null },
     { label: "Contact", link: "/contact", action: null }
   ];
