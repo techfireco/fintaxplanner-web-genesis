@@ -1,10 +1,11 @@
 import { useParams, Link, Navigate } from "react-router-dom";
-import { Calendar, Clock, Tag, ArrowLeft, Share2 } from "lucide-react";
+import { Calendar, Clock, Tag, ArrowLeft, Share2, ChevronDown } from "lucide-react";
 import { getBlogPostBySlug } from "@/data/blogData";
 import { format } from "date-fns";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { useState } from "react";
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -64,14 +65,102 @@ const BlogPostPage = () => {
     return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
   };
 
+  // FAQ Accordion Component
+  const FAQAccordion = ({ question, answer, index }: { question: string; answer: string; index: number }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    
+    return (
+      <div className="border border-gray-200 rounded-lg overflow-hidden mb-3 transition-all hover:border-primary/50">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-full flex items-center justify-between p-5 text-left bg-white hover:bg-gray-50 transition-colors"
+        >
+          <span className="font-semibold text-gray-900 pr-4">{question}</span>
+          <ChevronDown 
+            className={`w-5 h-5 text-primary flex-shrink-0 transition-transform duration-300 ${
+              isOpen ? 'rotate-180' : ''
+            }`}
+          />
+        </button>
+        <div
+          className={`overflow-hidden transition-all duration-300 ${
+            isOpen ? 'max-h-96' : 'max-h-0'
+          }`}
+        >
+          <div className="p-5 pt-0 text-gray-700 leading-relaxed bg-gray-50">
+            <div dangerouslySetInnerHTML={{ __html: processBoldText(answer) }} />
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   // Convert markdown-style content to JSX
   const renderContent = (content: string) => {
     const lines = content.split('\n');
     const elements: JSX.Element[] = [];
     let tableRows: JSX.Element[] = [];
     let inTable = false;
+    let inFAQSection = false;
+    let faqItems: Array<{ question: string; answer: string }> = [];
+    let currentFAQ: { question: string; answer: string } | null = null;
 
     lines.forEach((line, index) => {
+      // Check if we're entering FAQ section
+      if (line.includes('## FAQ') || line.includes('FAQs')) {
+        inFAQSection = true;
+        elements.push(
+          <div key={index} className="mt-12 mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">Frequently Asked Questions</h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/50 mb-8"></div>
+          </div>
+        );
+        return;
+      }
+
+      // Handle FAQ questions (starting with ###)
+      if (inFAQSection && line.startsWith('### ')) {
+        // Save previous FAQ if exists
+        if (currentFAQ && currentFAQ.question && currentFAQ.answer) {
+          faqItems.push(currentFAQ);
+        }
+        // Start new FAQ
+        currentFAQ = { question: line.substring(4).trim(), answer: '' };
+        return;
+      }
+
+      // Collect FAQ answer
+      if (inFAQSection && currentFAQ && line.trim() !== '' && !line.startsWith('#')) {
+        currentFAQ.answer += (currentFAQ.answer ? '\n' : '') + line;
+        return;
+      }
+
+      // Check if FAQ section ended (next major heading)
+      if (inFAQSection && line.startsWith('## ') && !line.includes('FAQ')) {
+        // Save last FAQ
+        if (currentFAQ && currentFAQ.question && currentFAQ.answer) {
+          faqItems.push(currentFAQ);
+        }
+        // Render all FAQ items
+        if (faqItems.length > 0) {
+          elements.push(
+            <div key={`faq-section-${elements.length}`} className="my-8">
+              {faqItems.map((faq, idx) => (
+                <FAQAccordion
+                  key={idx}
+                  question={faq.question}
+                  answer={faq.answer}
+                  index={idx}
+                />
+              ))}
+            </div>
+          );
+          faqItems = [];
+        }
+        inFAQSection = false;
+        currentFAQ = null;
+      }
+
       // If we were in a table and this line is not a table row, close the table
       if (inTable && !line.includes('|')) {
         if (tableRows.length > 0) {
@@ -83,6 +172,11 @@ const BlogPostPage = () => {
           tableRows = [];
         }
         inTable = false;
+      }
+
+      // Skip rendering FAQ content in normal flow
+      if (inFAQSection) {
+        return;
       }
 
       // Handle headers
@@ -198,6 +292,27 @@ const BlogPostPage = () => {
         return;
       }
     });
+
+    // Close any remaining FAQ section
+    if (inFAQSection) {
+      if (currentFAQ && currentFAQ.question && currentFAQ.answer) {
+        faqItems.push(currentFAQ);
+      }
+      if (faqItems.length > 0) {
+        elements.push(
+          <div key={`faq-section-${elements.length}`} className="my-8">
+            {faqItems.map((faq, idx) => (
+              <FAQAccordion
+                key={idx}
+                question={faq.question}
+                answer={faq.answer}
+                index={idx}
+              />
+            ))}
+          </div>
+        );
+      }
+    }
 
     // Close any remaining table
     if (inTable && tableRows.length > 0) {

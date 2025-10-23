@@ -163,11 +163,7 @@ If you're confused about how to report your lottery winnings or want **hassle-fr
 ✅ File your ITR correctly  
 ✅ Claim TDS credit properly  
 ✅ Avoid penalties & notices  
-✅ Stay compliant with tax laws
-
-📞 **Contact:** +91 844 79 73 745  
-🌐 **Website:** https://www.fintaxplanner.com  
-📩 **WhatsApp:** http://wa.me/918447973745`,
+✅ Stay compliant with tax laws`,
     author: "Fintaxplanner Team",
     publishedAt: "2025-01-26",
     readTime: 7,
