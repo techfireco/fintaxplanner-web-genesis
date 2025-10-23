@@ -13,6 +13,168 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "lottery-tax-india-guide",
+    title: "Lottery Tax in India – A Simple Guide",
+    slug: "lottery-tax-india-guide",
+    excerpt: "Winning the lottery sounds like a dream come true – a sudden boost to your bank balance overnight. But before you celebrate, there's one important thing to know: lottery winnings in India are taxable. This guide explains lottery tax, TDS deduction, ITR filing, and everything you need to know.",
+    content: `# Lottery Tax in India – A Simple Guide
+
+Winning the lottery sounds like a dream come true – a sudden boost to your bank balance overnight. But before you celebrate, there's one important thing to know: **lottery winnings in India are taxable**. Unlike salary or business income, the tax rules for lottery money are different and very strict.
+
+This guide will explain lottery tax in India in simple words – tax rate, TDS deduction, filing ITR, and what documents you need.
+
+## What is Lottery Tax?
+
+Lottery tax is the income tax you pay on money won from lotteries, game shows, prize contests, gambling, or betting.
+
+- It is separate from regular income tax.
+- It is charged at a flat rate (not as per normal income tax slabs).
+- No deductions or exemptions (like 80C, HRA, etc.) are allowed on lottery income.
+
+## Tax Rate on Lottery Winnings
+
+- **Flat 30% tax** on winnings above ₹10,000.
+- **4% Health & Education Cess** on this tax.
+- **Surcharge** (extra tax) if winnings cross ₹50 lakh.
+
+👉 **Effective tax = 31.2% or more** depending on amount.
+
+### Example:
+
+If you win **₹1 crore**:
+
+| Tax Component   | Amount       |
+|-----------------|--------------|
+| Basic Tax       | ₹30,00,000   |
+| Cess (4%)       | ₹1,20,000    |
+| Surcharge (15%) | ₹4,50,000    |
+| **Total Tax**   | **₹35,70,000** |
+
+So, you'll receive around **₹64.3 lakh** after tax.
+
+## TDS on Lottery Winnings
+
+Tax is cut **before you receive your prize** (TDS – Tax Deducted at Source).
+
+You get the **net amount after tax**.
+
+**Example:** If prize is ₹10,00,000 → 31.2% (₹3,12,000) is deducted → you receive ₹6,88,000.
+
+Always check your **TDS certificate (Form 16A)** from the organizer.
+
+## Types of Lotteries Covered
+
+All types of winnings are taxed the same way:
+
+- **State Lotteries** (run by state governments)
+- **Central Lotteries**
+- **Online Lotteries** (Indian or international platforms)
+- **Game Shows / Reality Shows / Contests**
+
+👉 No matter where you win from, the tax rules remain the same.
+
+## Filing ITR with Lottery Income
+
+When filing your Income Tax Return:
+
+1. Report lottery winnings under **"Income from Other Sources"**.
+2. Declare the **gross prize amount** (before TDS).
+3. Claim credit for TDS using the certificate provided.
+4. Use **ITR-2 form** (ITR-1 cannot be used if you have lottery income).
+
+Keep documents like winning receipts, tickets, and TDS certificates safe – you may need them during scrutiny.
+
+## Can You Claim Deductions on Lottery Winnings?
+
+**No.**
+
+- ❌ No 80C (PPF, LIC, etc.)
+- ❌ No 80D (health insurance)
+- ❌ No HRA / LTA exemption
+
+Lottery winnings are treated as **windfall income**, so you must pay tax without any deductions.
+
+## Penalties for Non-Compliance
+
+If you hide or don't declare your winnings:
+
+- The Income Tax Department can impose **heavy penalties (up to 200% of tax)**
+- **Prosecution** in serious cases
+- **Interest charges** on delayed payment
+
+## Key Takeaways
+
+- **Flat 30% tax + 4% cess** on winnings above ₹10,000.
+- **No deductions or exemptions** allowed.
+- **TDS deducted before payout** – you get the balance.
+- Must file winnings in **ITR-2** under "Income from Other Sources".
+- Keep all documents safe to avoid issues with the Income Tax Department.
+
+💡 **Final Word:**
+
+Winning the lottery can change your life – but don't ignore taxes. Declare your winnings properly, pay your dues, and avoid unnecessary legal trouble.
+
+## FAQs – Tax on Lottery Winnings in India
+
+### Q1. Do I need to pay tax if I win less than ₹10,000 in lottery?
+
+No. Lottery winnings up to ₹10,000 are not subject to TDS. But if your total income (including the prize) crosses the basic exemption limit, you may still need to file ITR.
+
+### Q2. What is the tax rate on lottery winnings in India?
+
+A flat **30% income tax** is applied, plus **4% health & education cess**. If winnings are above ₹50 lakh, surcharge (10–15%) is also added.
+
+### Q3. Is foreign lottery income taxable in India?
+
+Yes. If you are an Indian resident, winnings from international lotteries are also taxable in India at the same 30% flat rate.
+
+### Q4. Can I claim deductions (like 80C, HRA, or medical expenses) on lottery winnings?
+
+No. No exemptions or deductions are allowed. Lottery income is taxed separately as "Income from Other Sources."
+
+### Q5. Do I have to declare lottery winnings while filing ITR?
+
+Yes. You must declare the gross amount under the head "Income from Other Sources" in ITR-2. Even if TDS is already deducted, you must still report it.
+
+### Q6. How is TDS deducted from lottery prizes?
+
+The organizer deducts 31.2% (30% tax + 4% cess) before giving you the prize. You receive the net amount after deduction.
+
+### Q7. If TDS is already deducted, do I still need to pay more tax?
+
+Usually, TDS covers your full liability. But if surcharge applies (on winnings above ₹50 lakh), you may need to pay extra at the time of filing ITR.
+
+### Q8. What happens if I don't report my lottery winnings?
+
+The Income Tax Department can impose heavy penalties (up to 200% of tax) and even start prosecution in serious cases.
+
+### Q9. Do online game shows or reality show prizes also get taxed the same way?
+
+Yes. Any prize from TV shows, online contests, gambling, or betting is taxed at the same flat 30% rate.
+
+### Q10. Which ITR form should I use if I have lottery income?
+
+You must use **ITR-2**. ITR-1 (Sahaj) cannot be used if you have income from lottery or game shows.
+
+## Need Help Filing Your Lottery Winnings?
+
+If you're confused about how to report your lottery winnings or want **hassle-free, accurate tax filing**, our team at **FinTaxPlanner** can help you:
+
+✅ File your ITR correctly  
+✅ Claim TDS credit properly  
+✅ Avoid penalties & notices  
+✅ Stay compliant with tax laws
+
+📞 **Contact:** +91 844 79 73 745  
+🌐 **Website:** https://www.fintaxplanner.com  
+📩 **WhatsApp:** http://wa.me/918447973745`,
+    author: "Fintaxplanner Team",
+    publishedAt: "2025-01-26",
+    readTime: 7,
+    tags: ["Lottery Tax", "Income Tax", "Tax Guide", "TDS", "ITR Filing"],
+    featured: true
+  },
+  {
     id: "itr-form-selection-guide-2025-26",
     title: "How to Select the Correct ITR Form for AY 2025-26",
     slug: "itr-form-selection-guide-2025-26",
