@@ -148,9 +148,15 @@ const ContactPage = () => {
                   {detail.action ? (
                     <a 
                       href={detail.action} 
-                      className="text-brand-blue hover:underline"
+                      className="text-brand-blue hover:underline cursor-pointer relative z-10"
                       target={detail.action.startsWith('http') ? '_blank' : undefined}
                       rel={detail.action.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      onClick={(e) => {
+                        if (detail.action.startsWith('http')) {
+                          e.preventDefault();
+                          window.open(detail.action, '_blank', 'noopener,noreferrer');
+                        }
+                      }}
                     >
                       {detail.value}
                     </a>
