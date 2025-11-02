@@ -27,14 +27,14 @@ const taxCalendarMonths = [
         date: 7,
         category: "Income Tax",
         title: "TDS & TCS Payment",
-        description: "For October 2025",
+        description: "For Oct'25",
         type: "income-tax"
       },
       {
         date: 10,
         category: "GST",
         title: "GSTR 7 (TDS) & GSTR 8 (TCS)",
-        description: "GST TDS and TCS returns",
+        description: "",
         type: "gst"
       },
       {
@@ -55,42 +55,42 @@ const taxCalendarMonths = [
         date: 13,
         category: "GST",
         title: "GSTR 1 IFF for QRMP",
-        description: "Invoice Furnishing Facility",
+        description: "",
         type: "gst"
       },
       {
         date: 13,
         category: "Income Tax",
         title: "TDS Return",
-        description: "For October 2025",
+        description: "For Oct'25",
         type: "income-tax"
       },
       {
         date: 14,
         category: "TDS Certificate",
         title: "TDS Certificate",
-        description: "For Q2 (July to September)",
+        description: "For Q2 (Jul to Sep)",
         type: "tds"
       },
       {
         date: 14,
         category: "GST",
         title: "GSTR 6 for ISD",
-        description: "Input Service Distributor",
+        description: "",
         type: "gst"
       },
       {
         date: 20,
         category: "GST",
         title: "GSTR 3B (Monthly)",
-        description: "For October 2025",
+        description: "For Oct'25",
         type: "gst"
       },
       {
         date: 20,
         category: "GST",
         title: "GSTR 5A",
-        description: "For October 2025",
+        description: "For Oct'25",
         type: "gst"
       },
       {
@@ -104,7 +104,7 @@ const taxCalendarMonths = [
         date: 30,
         category: "Income Tax",
         title: "ITR for AY 2025-26",
-        description: "If TP (Transfer Pricing) applicable",
+        description: "If TP applicable",
         type: "income-tax"
       }
     ]
