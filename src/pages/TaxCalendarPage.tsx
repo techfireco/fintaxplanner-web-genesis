@@ -27,7 +27,7 @@ const taxCalendarMonths = [
         date: 7,
         category: "Income Tax",
         title: "TDS & TCS Payment",
-        description: "For Oct'25",
+        description: "for Oct'25",
         type: "income-tax"
       },
       {
@@ -41,7 +41,7 @@ const taxCalendarMonths = [
         date: 10,
         category: "Income Tax",
         title: "Tax Audit u/s 44AB",
-        description: "For AY 25-26 (if TP audit not applicable)",
+        description: "for AY 25-26 (if TP audit not applicable)",
         type: "income-tax"
       },
       {
@@ -62,14 +62,14 @@ const taxCalendarMonths = [
         date: 13,
         category: "Income Tax",
         title: "TDS Return",
-        description: "For Oct'25",
+        description: "for Oct'25",
         type: "income-tax"
       },
       {
         date: 14,
         category: "TDS Certificate",
         title: "TDS Certificate",
-        description: "For Q2 (Jul to Sep)",
+        description: "for Q2 (Jul to Sep)",
         type: "tds"
       },
       {
@@ -83,14 +83,14 @@ const taxCalendarMonths = [
         date: 20,
         category: "GST",
         title: "GSTR 3B (Monthly)",
-        description: "For Oct'25",
+        description: "for Oct'25",
         type: "gst"
       },
       {
         date: 20,
         category: "GST",
         title: "GSTR 5A",
-        description: "For Oct'25",
+        description: "for Oct'25",
         type: "gst"
       },
       {
@@ -104,7 +104,7 @@ const taxCalendarMonths = [
         date: 30,
         category: "Income Tax",
         title: "ITR for AY 2025-26",
-        description: "If TP applicable",
+        description: "if TP applicable",
         type: "income-tax"
       }
     ]
