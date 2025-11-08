@@ -60,24 +60,17 @@ const taxCalendarMonths = [
       },
       {
         date: 13,
-        category: "Income Tax",
-        title: "TDS Return",
-        description: "for Oct'25",
-        type: "income-tax"
-      },
-      {
-        date: 14,
-        category: "TDS Certificate",
-        title: "TDS Certificate",
-        description: "for Q2 (Jul to Sep)",
-        type: "tds"
-      },
-      {
-        date: 14,
         category: "GST",
         title: "GSTR 6 for ISD",
         description: "",
         type: "gst"
+      },
+      {
+        date: 15,
+        category: "TDS Certificate",
+        title: "TDS Certificate",
+        description: "for Q2 (Jul to Sep)",
+        type: "tds"
       },
       {
         date: 20,
@@ -166,23 +159,23 @@ const TaxCalendarPage = () => {
       const dayDueDates = monthData.dueDates.filter(d => d.date === day);
       
       days.push(
-        <div
-          key={day}
-          className="min-h-[120px] border border-border p-2 bg-card hover:bg-accent/5 transition-colors"
-        >
-          <div className="font-semibold text-sm mb-2">{day}</div>
-          <div className="space-y-1">
-            {dayDueDates.map((dueDate, idx) => (
-              <div
-                key={idx}
-                className={`text-[10px] p-1.5 rounded border ${getTypeColor(dueDate.type)}`}
-              >
-                <div className="font-semibold truncate">{dueDate.title}</div>
-                <div className="text-[9px] opacity-75 truncate">{dueDate.description}</div>
-              </div>
-            ))}
+          <div
+            key={day}
+            className="min-h-[120px] border border-border p-2 bg-card hover:bg-accent/5 transition-colors"
+          >
+            <div className="font-semibold text-sm mb-2">{day}</div>
+            <div className="space-y-1.5">
+              {dayDueDates.map((dueDate, idx) => (
+                <div
+                  key={idx}
+                  className={`text-[10px] p-1.5 rounded border ${getTypeColor(dueDate.type)}`}
+                >
+                  <div className="font-semibold whitespace-normal break-words leading-tight">{dueDate.title}</div>
+                  <div className="text-[9px] opacity-75 whitespace-normal break-words">{dueDate.description}</div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
       );
 
       // If we have 7 days, start a new week
