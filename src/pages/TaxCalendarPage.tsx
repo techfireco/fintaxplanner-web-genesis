@@ -15,6 +15,122 @@ import Footer from "@/components/Footer";
 // The first month in the array will be expanded by default
 const taxCalendarMonths = [
   {
+    id: "dec-2025",
+    month: "December",
+    year: "2025",
+    importantNotes: [
+      "Annual return filing deadline for FY 2024-25 (GSTR 9 & 9C)",
+      "Last date for belated/revised ITR filing for AY 2025-26"
+    ],
+    dueDates: [
+      {
+        date: 5,
+        category: "SEZ",
+        title: "SEZ - MPR",
+        description: "for Nov'25",
+        type: "gst"
+      },
+      {
+        date: 7,
+        category: "Income Tax",
+        title: "TDS & TCS Payment",
+        description: "for Nov'25",
+        type: "income-tax"
+      },
+      {
+        date: 10,
+        category: "STPI",
+        title: "STPI - MPR / SERF",
+        description: "for Nov'25",
+        type: "gst"
+      },
+      {
+        date: 10,
+        category: "GST",
+        title: "GSTR 7 (TDS) & GSTR 8 (TCS)",
+        description: "for Nov'25",
+        type: "gst"
+      },
+      {
+        date: 10,
+        category: "Income Tax",
+        title: "ITR for AY 25-26",
+        description: "if TP audit not applicable",
+        type: "income-tax"
+      },
+      {
+        date: 11,
+        category: "GST",
+        title: "GSTR 1",
+        description: "Turnover > INR 5 cr or opted for monthly filing (for Nov'25)",
+        type: "gst"
+      },
+      {
+        date: 13,
+        category: "GST",
+        title: "GSTR 1 IFF for QRMP",
+        description: "for Nov'25",
+        type: "gst"
+      },
+      {
+        date: 13,
+        category: "GST",
+        title: "GSTR 6 for ISD",
+        description: "for Nov'25",
+        type: "gst"
+      },
+      {
+        date: 15,
+        category: "Income Tax",
+        title: "Advance Tax 3rd Instalment",
+        description: "QE Dec'25",
+        type: "income-tax"
+      },
+      {
+        date: 20,
+        category: "GST",
+        title: "GSTR 3B (Monthly)",
+        description: "for Nov'25",
+        type: "gst"
+      },
+      {
+        date: 20,
+        category: "GST",
+        title: "GSTR 5A",
+        description: "for Nov'25",
+        type: "gst"
+      },
+      {
+        date: 25,
+        category: "GST",
+        title: "PMT 06",
+        description: "Monthly tax payment under QRMP scheme (for Nov'25)",
+        type: "gst"
+      },
+      {
+        date: 30,
+        category: "Income Tax",
+        title: "Form No. 3CEAD",
+        description: "for reporting accounting year (Jan 24-Dec 24)",
+        type: "income-tax"
+      },
+      {
+        date: 31,
+        category: "GST",
+        title: "GSTR 9 & 9C",
+        description: "Annual return filing for FY 2024-25",
+        type: "gst"
+      },
+      {
+        date: 31,
+        category: "Income Tax",
+        title: "Belated / Revised ITR",
+        description: "for AY 2025-26 (provided assessment not completed before Dec 31, 2025)",
+        type: "income-tax"
+      }
+    ]
+  },
+  {
     id: "nov-2025",
     month: "November",
     year: "2025",
@@ -150,7 +266,7 @@ const TaxCalendarPage = () => {
     // Add empty cells for days before the first day of the month
     for (let i = 0; i < firstDay; i++) {
       days.push(
-        <div key={`empty-${i}`} className="min-h-[120px] bg-muted/20"></div>
+        <div key={`empty-${i}`} className="min-h-[100px] md:min-h-[120px] bg-muted/20"></div>
       );
     }
 
@@ -161,17 +277,17 @@ const TaxCalendarPage = () => {
       days.push(
           <div
             key={day}
-            className="min-h-[120px] border border-border p-2 bg-card hover:bg-accent/5 transition-colors"
+            className="min-h-[100px] md:min-h-[120px] border border-border p-1 md:p-2 bg-card hover:bg-accent/5 transition-colors"
           >
-            <div className="font-semibold text-sm mb-2">{day}</div>
-            <div className="space-y-1.5">
+            <div className="font-semibold text-xs md:text-sm mb-1 md:mb-2">{day}</div>
+            <div className="space-y-1 md:space-y-1.5">
               {dayDueDates.map((dueDate, idx) => (
                 <div
                   key={idx}
-                  className={`text-[10px] p-1.5 rounded border ${getTypeColor(dueDate.type)}`}
+                  className={`text-[9px] md:text-[10px] p-1 md:p-1.5 rounded border ${getTypeColor(dueDate.type)}`}
                 >
                   <div className="font-semibold whitespace-normal break-words leading-tight">{dueDate.title}</div>
-                  <div className="text-[9px] opacity-75 whitespace-normal break-words">{dueDate.description}</div>
+                  <div className="text-[8px] md:text-[9px] opacity-75 whitespace-normal break-words">{dueDate.description}</div>
                 </div>
               ))}
             </div>
@@ -193,7 +309,7 @@ const TaxCalendarPage = () => {
     if (days.length > 0) {
       while (days.length < 7) {
         days.push(
-          <div key={`empty-end-${days.length}`} className="min-h-[120px] bg-muted/20"></div>
+          <div key={`empty-end-${days.length}`} className="min-h-[100px] md:min-h-[120px] bg-muted/20"></div>
         );
       }
       weeks.push(
@@ -289,16 +405,18 @@ const TaxCalendarPage = () => {
                     {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
                       <div
                         key={day}
-                        className="text-center font-semibold text-sm py-2 bg-muted/50"
+                        className="text-center font-semibold text-xs md:text-sm py-1 md:py-2 bg-muted/50"
                       >
                         {day}
                       </div>
                     ))}
                   </div>
 
-                  {/* Calendar Grid */}
-                  <div className="border-2 border-border rounded-lg overflow-hidden">
-                    {renderCalendarGrid(monthData)}
+                  {/* Calendar Grid - Scrollable on mobile */}
+                  <div className="border-2 border-border rounded-lg overflow-x-auto">
+                    <div className="min-w-[640px] md:min-w-0">
+                      {renderCalendarGrid(monthData)}
+                    </div>
                   </div>
                 </AccordionContent>
               </AccordionItem>
